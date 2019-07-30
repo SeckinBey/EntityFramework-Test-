@@ -1,0 +1,41 @@
+﻿@using EntityFramework_CodeFirst.Models
+@model Address
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Address</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1" style="width: 100px;">Address</span>
+        </div>
+        @Html.TextAreaFor(x => x.AddressName, new { @class = "form-control", placeholder = "Name", aria_label = "Address Name", aria_describedby = "basic-addon1", cols = "30", rows = "10" })
+    </div>
+
+    <br />
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1" style="width: 100px;">Person</span>
+        </div>
+        @Html.DropDownListFor(x => x.Person.ID, (List<SelectListItem>)ViewBag.item, new { @class = "form-control", aria_label = "Surname", aria_describedby = "basic-addon1" })
+    </div>
+
+    <div class="input-group">
+        <input type="submit" value="Submit" class="btn btn-success" />
+    </div>
+
+    <br />
+
+    <div>
+        @Html.ActionLink("Back to List", "Index", "Home", null, new { @class = "btn btn-warning" })
+    </div>
+
+
+}

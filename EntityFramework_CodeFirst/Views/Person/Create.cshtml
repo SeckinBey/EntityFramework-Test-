@@ -1,0 +1,51 @@
+﻿@using EntityFramework_CodeFirst.Models
+@model Person
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create New Person</h2>
+<hr />
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1" style="width: 100px;">Name</span>
+        </div>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Name", aria_label = "Name", aria_describedby = "basic-addon1" })
+    </div>
+
+    <br/>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1" style="width: 100px;">Surname</span>
+        </div>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", placeholder = "Surname", aria_label = "Surname", aria_describedby = "basic-addon1" })
+    </div>
+
+    <br/>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1" style="width: 100px;">Age</span>
+        </div>
+        @Html.TextBoxFor(x => x.Age, new { @class = "form-control", placeholder = "Age", aria_label = "Age", aria_describedby = "basic-addon1" })
+    </div>
+
+    <div class="input-group">
+        <input type="submit" value="Submit" class="btn btn-success" />
+    </div>
+
+    <br/>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index","Home",null,new { @class = "btn btn-warning" })
+    </div>
+
+
+}

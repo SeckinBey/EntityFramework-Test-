@@ -1,0 +1,42 @@
+﻿@using EntityFramework_CodeFirst.Models
+@model Address
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Address</h2>
+<hr />
+<br />
+
+<p>
+    Are you sure you want to delete this address?
+</p>
+
+
+<table>
+    <tr>
+        <td><strong>Address Name:</strong></td>
+        <td>@Model.AddressName</td>
+    </tr>
+    <tr>
+        <td><strong>Person:</strong></td>
+        <td>@(Model.Person.Name + " " + Model.Person.Surname + " (" + Model.Person.Age + ")")</td>
+    </tr>
+</table>
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.ID)
+    <div class="input-group">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </div>
+
+    <br />
+
+    <div>
+        @Html.ActionLink("Back to List", "Index", "Home", null, new { @class = "btn btn-warning" })
+    </div>
+
+
+}
